@@ -1,0 +1,9 @@
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\bin\Debug\juiceBar.exe.config
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\bin\Debug\juiceBar.exe
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\bin\Debug\juiceBar.pdb
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.csprojResolveAssemblyReference.cache
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.main.resources
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.Properties.Resources.resources
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.csproj.GenerateResource.Cache
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.exe
+C:\Git\C#Labs\Lab3\juiceBar\juiceBar\obj\Debug\juiceBar.pdb
