@@ -134,6 +134,7 @@ namespace juiceBar
             bool drinkChecked = !radioButtonPomegranate.Checked && !radioButtonBanana.Checked && !radioButtonStrawberry.Checked && !radioButtonVegetable.Checked && !radioButtonWheatberry.Checked && !radioButtonFruit.Checked;
             if (drinkChecked)
             {
+                MessageBox.Show("You must select a drink type.", "Select Drink Type");
                 return false;
             }
             return true;
@@ -145,6 +146,7 @@ namespace juiceBar
             bool sizeChecked = !radioButtonLarge.Checked && !radioButtonMedium.Checked && !radioButtonSmall.Checked;
             if (sizeChecked)
             {
+                MessageBox.Show("You must select a drink size", "Select Drink Size");
                 return false;
             }
             return true;
