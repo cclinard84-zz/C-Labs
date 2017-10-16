@@ -24,6 +24,7 @@ namespace juiceBar
             labelTotalCost.Text = "";
         }
 
+        //This method adds columns to the listview
         private void AddColumnsToListView()
         {
             ColumnHeader drinkHeader = new ColumnHeader();
@@ -49,6 +50,7 @@ namespace juiceBar
             listViewOrderDetails.View = View.Details;
         }
 
+        //This method sets any selected radio buttons to false if the tabbed page is changed
         private void tabControlDrinkType_SelectedIndexChanged(object sender, EventArgs e)
         {
             radioButtonBanana.Checked = false;
@@ -59,11 +61,13 @@ namespace juiceBar
             radioButtonStrawberry.Checked = false;
         }
 
+        //This method is the event handler for the add to order button
         private void buttonAddToOrder_Click(object sender, EventArgs e)
         {
             AddToOrder();
         }
 
+        //This method adds a drink to the order
         private void AddToOrder()
         {
             double cost = 0;
@@ -91,11 +95,13 @@ namespace juiceBar
             }
         }
 
+        //This changes the labelTotalCost to reflect the cost of the order
         private void calculateTotal(double cost)
         {
             labelTotalCost.Text = string.Format("${0:N2}", _totalCost);
         }
 
+        //This method clears out the previous drink order
         private void clearItem()
         {
             radioButtonBanana.Checked = false;
@@ -113,6 +119,7 @@ namespace juiceBar
             maskedTextBoxQuantity.Text = "";
         }
 
+        //This method checks to see if a drink has been selected
         private bool IsDrinkTypeChecked()
         {
             bool drinkChecked = !radioButtonPomegranate.Checked && !radioButtonBanana.Checked && !radioButtonStrawberry.Checked && !radioButtonVegetable.Checked && !radioButtonWheatberry.Checked && !radioButtonFruit.Checked;
@@ -123,6 +130,7 @@ namespace juiceBar
             return true;
         }
 
+        //This methods checks to see if the size of the drink has been selected
         private bool IsSizeChecked()
         {
             bool sizeChecked = !radioButtonLarge.Checked && !radioButtonMedium.Checked && !radioButtonSmall.Checked;
@@ -133,6 +141,8 @@ namespace juiceBar
             return true;
         }
 
+
+        //This method determines gets the stringified value of a checked radio button
         private string GetDrinkType()
         {
             if(radioButtonBanana.Checked == true)
@@ -159,6 +169,8 @@ namespace juiceBar
             return "Wheat Berry Smoothie";
         }
 
+
+        //This method gets the value of the sizes of drinks
         private double getSizeCost()
         {
             if (radioButtonSmall.Checked == true)
@@ -175,6 +187,8 @@ namespace juiceBar
             }
         }
 
+
+        //This method determines how much a drinks supplements would add to the total cost
         private double getSupplementCost()
         {
             double cost = 0;
@@ -193,11 +207,13 @@ namespace juiceBar
             return cost;
         }
 
+        //This method is the event handler for the order complete button
         private void buttonOrderComplete_Click(object sender, EventArgs e)
         {
             OrderComplete();            
         }
 
+        //This method is responsible for what happens after an order has been completed.
         private void OrderComplete()
         {
             if (listViewOrderDetails.Items.Count == 0)
@@ -213,11 +229,13 @@ namespace juiceBar
             labelTotalCost.Text = "";
         }
 
+        //THis method is the event handler for the summary report button
         private void buttonSummaryReport_Click(object sender, EventArgs e)
         {
             GetSummaryReport();
         }
 
+        //This method gets and displays the summary report
         private void GetSummaryReport()
         {
             double revenue = 0;
@@ -241,26 +259,31 @@ namespace juiceBar
             MessageBox.Show(message, "Order Summary Report");
         }
 
+        //This is the event handler for the add to order button on the menu
         private void addToOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddToOrder();
         }
 
+        //This is the event handler for the complete order button on the menu
         private void completeOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OrderComplete();
         }
 
+        //This is the event handler for the summary report menu item 
         private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetSummaryReport();
         }
 
+        //This is the even hanlder for the exit button on the menu
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //This is the even handler for the blue color menu item 
         private void blueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.BackColor = Color.Blue;
@@ -271,6 +294,7 @@ namespace juiceBar
 
         }
 
+        //This is the even handler for the red color menu item 
         private void redToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.BackColor = Color.Red;
@@ -280,6 +304,7 @@ namespace juiceBar
             main.ActiveForm.BackColor = Color.Red;
         }
 
+        //This is the even handler for the green color menu item 
         private void greenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.BackColor = Color.Green;
@@ -289,6 +314,7 @@ namespace juiceBar
             main.ActiveForm.BackColor = Color.Green;
         }
 
+        //This is the even handler for font times new roman menu item 
         private void timesNewRomanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Font timesNewRoman = new Font("Times New Roman", 10);
@@ -302,6 +328,7 @@ namespace juiceBar
             buttonSummaryReport.Font = timesNewRoman;
         }
 
+        //This is the even handler for font helvetica menu item 
         private void helveticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Font helvetica = new Font("Helvetica", 10);
@@ -315,6 +342,7 @@ namespace juiceBar
             buttonSummaryReport.Font = helvetica;
         }
 
+        //This is the event handler for font Comic Sans menu item 
         private void comicSansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Font comicSans = new Font("Comic Sans MS", 10);
@@ -328,9 +356,10 @@ namespace juiceBar
             buttonSummaryReport.Font = comicSans;
         }
 
+        //This is the event handler for the about item on the menu
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("This program allows you to make all sorts of\ncombinations of drinks!!\n\nverson: 0.0.2");
         }
     }
 }
