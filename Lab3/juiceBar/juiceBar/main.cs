@@ -1,4 +1,13 @@
-﻿using juiceBar.Model;
+﻿/*
+ *  File Name: Program.cs
+ *  Author: Matt Clinard
+ *  Date: 10/16/17
+ *  This program allows a user to select and buy a number of drinks and also get a summary
+ *  of how many drinks have been served as well as orders taken.
+ */
+
+
+using juiceBar.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
