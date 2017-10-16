@@ -300,7 +300,15 @@ namespace juiceBar
             groupBoxOrderDetails.BackColor = Color.Blue;
             groupBox1.BackColor = Color.Blue;
             main.ActiveForm.BackColor = Color.Blue;
+            tabPage1.BackColor = Color.Blue;
+            tabPage2.BackColor = Color.Blue;
 
+            menuStrip1.ForeColor = Color.White;
+            groupBoxDrinkPicker.ForeColor = Color.White;
+            groupBoxOrderDetails.ForeColor = Color.White;
+            groupBoxSizes.ForeColor = Color.White;
+            main.ActiveForm.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.White;
         }
 
         //This is the even handler for the red color menu item 
@@ -311,6 +319,15 @@ namespace juiceBar
             groupBoxOrderDetails.BackColor = Color.Red;
             groupBox1.BackColor = Color.Red;
             main.ActiveForm.BackColor = Color.Red;
+            tabPage1.BackColor = Color.Red;
+            tabPage2.BackColor = Color.Red;
+
+            menuStrip1.ForeColor = Color.Blue;
+            groupBoxDrinkPicker.ForeColor = Color.Blue;
+            groupBoxOrderDetails.ForeColor = Color.Blue;
+            groupBox1.ForeColor = Color.Blue;
+            groupBoxSizes.ForeColor = Color.Blue;
+            main.ActiveForm.ForeColor = Color.Blue;
         }
 
         //This is the even handler for the green color menu item 
@@ -321,6 +338,15 @@ namespace juiceBar
             groupBoxOrderDetails.BackColor = Color.Green;
             groupBox1.BackColor = Color.Green;
             main.ActiveForm.BackColor = Color.Green;
+            tabPage1.BackColor = Color.Green;
+            tabPage2.BackColor = Color.Green;
+
+            menuStrip1.ForeColor = Color.Pink;
+            groupBoxDrinkPicker.ForeColor = Color.Pink;
+            groupBoxOrderDetails.ForeColor = Color.Pink;
+            groupBox1.ForeColor = Color.Pink;
+            groupBoxSizes.ForeColor = Color.Pink;
+            main.ActiveForm.ForeColor = Color.Pink;
         }
 
         //This is the even handler for font times new roman menu item 
