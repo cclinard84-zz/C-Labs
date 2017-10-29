@@ -204,6 +204,12 @@ namespace coffeeApp
             if (maskedTextBoxOrderName.Text == string.Empty)
             {
                 MessageBox.Show("You must give an order name", "Give an order name");
+                return;
+            }
+            if(orderList.Count == 0)
+            {
+                MessageBox.Show("You must have at least one item in your order", "Add an Item");
+                return;
             }
 
             clearListAndListView();
