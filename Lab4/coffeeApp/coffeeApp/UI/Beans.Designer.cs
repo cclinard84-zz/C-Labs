@@ -89,20 +89,22 @@
             this.clearToolStripMenuItem2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(179, 38);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem2
             // 
             this.clearToolStripMenuItem2.Name = "clearToolStripMenuItem2";
-            this.clearToolStripMenuItem2.Size = new System.Drawing.Size(179, 38);
+            this.clearToolStripMenuItem2.Size = new System.Drawing.Size(268, 38);
             this.clearToolStripMenuItem2.Text = "Clear";
+            this.clearToolStripMenuItem2.Click += new System.EventHandler(this.clearToolStripMenuItem2_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -130,14 +132,14 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(200, 38);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(200, 38);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -147,19 +149,20 @@
             this.clearToolStripMenuItem1,
             this.countToolStripMenuItem});
             this.coffeeListToolStripMenuItem.Name = "coffeeListToolStripMenuItem";
-            this.coffeeListToolStripMenuItem.Size = new System.Drawing.Size(140, 36);
+            this.coffeeListToolStripMenuItem.Size = new System.Drawing.Size(140, 38);
             this.coffeeListToolStripMenuItem.Text = "Coffee List";
             // 
             // clearToolStripMenuItem1
             // 
             this.clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(179, 38);
+            this.clearToolStripMenuItem1.Size = new System.Drawing.Size(268, 38);
             this.clearToolStripMenuItem1.Text = "Clear";
+            this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clearToolStripMenuItem1_Click);
             // 
             // countToolStripMenuItem
             // 
             this.countToolStripMenuItem.Name = "countToolStripMenuItem";
-            this.countToolStripMenuItem.Size = new System.Drawing.Size(179, 38);
+            this.countToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
             this.countToolStripMenuItem.Text = "Count";
             this.countToolStripMenuItem.Click += new System.EventHandler(this.countToolStripMenuItem_Click);
             // 

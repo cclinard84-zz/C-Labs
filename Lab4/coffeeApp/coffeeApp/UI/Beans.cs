@@ -205,9 +205,17 @@ namespace coffeeApp
             {
                 MessageBox.Show("You must give an order name", "Give an order name");
             }
+
+            clearListAndListView();
+            clearSelected();  
         }
 
         private void buttonClearOrder_Click(object sender, EventArgs e)
+        {
+            clearListAndListView();
+        }
+
+        private void clearListAndListView()
         {
             orderList.Clear();
             listViewOrder.Items.Clear();
@@ -245,6 +253,33 @@ namespace coffeeApp
             {
                 return;
             }
+        }
+
+        private void clearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            clearListAndListView();
+        }
+
+        private void clearToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            clearSelected();
+        }
+
+        private void clearSelected()
+        {
+            comboBoxCoffeeFlavors.SelectedIndex = -1;
+            listBoxSyrupFlavors.SelectedIndex = -1;
+            radioButtonExtraLarge.Checked = false;
+            radioButtonLarge.Checked = false;
+            radioButtonMedium.Checked = false;
+            radioButtonSmall.Checked = false;
+            comboBoxQuantity.SelectedIndex = -1;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form aboutForm = new About();
+            aboutForm.Show();
         }
     }
 }
