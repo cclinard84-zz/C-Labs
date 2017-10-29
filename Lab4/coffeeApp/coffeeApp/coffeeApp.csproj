@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CoffeeFlavor.cs" />
+    <Compile Include="Models\SyrupFlavor.cs" />
     <Compile Include="Models\Coffee.cs" />
     <Compile Include="UI\Beans.cs">
       <SubType>Form</SubType>

@@ -15,16 +15,80 @@ namespace coffeeApp
     public partial class Beans : Form
     {
         private List<Coffee> orderList = new List<Coffee>();
+        private List<SyrupFlavor> syrupList = new List<SyrupFlavor>();
+        public List<CoffeeFlavor> coffeeFlavorList = new List<CoffeeFlavor>();
+
         public Beans()
         {
             InitializeComponent();
             listViewOrder.View = View.Details;
+            addCoffeeFlavorsToList();
+            addSyrupFlavorsToList();
+            addItemsToListBox();
+            addItemsToComboBox();
+        }
+
+        private void addCoffeeFlavorsToList()
+        {
+            CoffeeFlavor regular = new CoffeeFlavor("Regular");
+            CoffeeFlavor darkRoast = new CoffeeFlavor("Dark Roast");
+            CoffeeFlavor americana = new CoffeeFlavor("Americana");
+            CoffeeFlavor espresso = new CoffeeFlavor("Espresso");
+            CoffeeFlavor latte = new CoffeeFlavor("Latte");
+            coffeeFlavorList.Add(regular);
+            coffeeFlavorList.Add(darkRoast);
+            coffeeFlavorList.Add(americana);
+            coffeeFlavorList.Add(espresso);
+            coffeeFlavorList.Add(latte);
+        }
+
+        private void addSyrupFlavorsToList()
+        {
+            SyrupFlavor almond = new SyrupFlavor("Almond");
+            SyrupFlavor amaretto = new SyrupFlavor("Amaretto");
+            SyrupFlavor caramel = new SyrupFlavor("Caramel");
+            SyrupFlavor chocolateMilano = new SyrupFlavor("Chocolate Milano");
+            SyrupFlavor cinnamon = new SyrupFlavor("Cinnamon");
+            SyrupFlavor pumpkinSpice = new SyrupFlavor("Pumpkin Spice");
+            syrupList.Add(almond);
+            syrupList.Add(amaretto);
+            syrupList.Add(caramel);
+            syrupList.Add(chocolateMilano);
+            syrupList.Add(cinnamon);
+            syrupList.Add(pumpkinSpice);
+        }
+
+        private void addItemsToComboBox()
+        {
+            foreach (CoffeeFlavor coffeeFlavor in coffeeFlavorList)
+            {
+                comboBoxCoffeeFlavors.Items.Add(coffeeFlavor.flavor);
+            }
+        }
+
+        private void addItemsToListBox()
+        {
+            foreach (SyrupFlavor syrupFlavor in syrupList)
+            {
+                listBoxSyrupFlavors.Items.Add(syrupFlavor.flavor);
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddForm addForm = new AddForm();
-            addForm.Show();
+            AddForm addForm = new AddForm(coffeeFlavorList);
+            addForm.ShowDialog();
+            CoffeeFlavor tempFlavor = addForm.getFlavor();
+            if (tempFlavor != null)
+            {
+                addCoffeeFlavorsToList(tempFlavor);
+            }
+
+        }
+
+        private void addCoffeeFlavorsToList(CoffeeFlavor flavor)
+        {
+            comboBoxCoffeeFlavors.Items.Add(flavor.flavor);
         }
 
         private void countToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,12 +106,12 @@ namespace coffeeApp
             string size;
             bool sizeSelected = radioButtonExtraLarge.Checked == false && radioButtonLarge.Checked == false && radioButtonMedium.Checked == false && radioButtonSmall.Checked == false;
 
-            if(comboBoxCoffeeFlavors.SelectedIndex == -1)
+            if (comboBoxCoffeeFlavors.SelectedIndex == -1)
             {
                 MessageBox.Show("You must select a coffee flavor", "Select Coffee Flavor");
                 return;
             }
-            if(comboBoxQuantity.SelectedIndex == -1)
+            if (comboBoxQuantity.SelectedIndex == -1)
             {
                 MessageBox.Show("You must select a quantity", "Select Number of Drinks");
                 return;
@@ -57,9 +121,9 @@ namespace coffeeApp
                 MessageBox.Show("You must select a drink size", "Select drink size");
                 return;
             }
-            if(listBoxSyrupFlavors.SelectedIndex != -1)
+            if (listBoxSyrupFlavors.SelectedIndex != -1)
             {
-                syrupFlavor = listBoxSyrupFlavors.GetItemText(listBoxSyrupFlavors.SelectedIndex);
+                syrupFlavor = listBoxSyrupFlavors.Text;
             }
             else
             {
@@ -72,32 +136,31 @@ namespace coffeeApp
 
             Coffee coffee = new Coffee(coffeeFlavor, syrupFlavor, size, price, quantity);
             orderList.Add(coffee);
-            addOrderToListView();
+            addOrderToListView(coffee);
         }
 
-        private void addOrderToListView()
+        private void addOrderToListView(Coffee coffee)
         {
-            foreach(Coffee coffee in orderList)
-            {
-                ListViewItem listViewItem = new ListViewItem(coffee.coffeeFlavor, 0);
-                listViewItem.SubItems.Add(coffee.syrupFlavor);
-                listViewItem.SubItems.Add(coffee.quantity);
-                listViewItem.SubItems.Add(coffee.price);
-                listViewOrder.Items.Add(listViewItem);
-            }
+
+            ListViewItem listViewItem = new ListViewItem(coffee.coffeeFlavor, 0);
+            listViewItem.SubItems.Add(coffee.syrupFlavor);
+            listViewItem.SubItems.Add(coffee.quantity);
+            listViewItem.SubItems.Add(coffee.price);
+            listViewOrder.Items.Add(listViewItem);
+
         }
 
         private string getSize()
         {
-            if(radioButtonExtraLarge.Checked == true)
+            if (radioButtonExtraLarge.Checked == true)
             {
                 return "Extra-Large";
             }
-            else if(radioButtonLarge.Checked == true)
+            else if (radioButtonLarge.Checked == true)
             {
                 return "Large";
             }
-            else if(radioButtonMedium.Checked == true)
+            else if (radioButtonMedium.Checked == true)
             {
                 return "Medium";
             }
@@ -111,19 +174,19 @@ namespace coffeeApp
         {
             string price = "";
             double tempPrice = 0;
-            if(listBoxSyrupFlavors.SelectedIndex != -1)
+            if (listBoxSyrupFlavors.SelectedIndex != -1)
             {
                 tempPrice += 2.50;
             }
-            if(size == "Small")
+            if (size == "Small")
             {
                 tempPrice += 1.00;
             }
-            else if(size == "Medium")
+            else if (size == "Medium")
             {
                 tempPrice += 1.50;
             }
-            else if(size == "Large")
+            else if (size == "Large")
             {
                 tempPrice += 2.50;
             }
@@ -131,14 +194,14 @@ namespace coffeeApp
             {
                 tempPrice += 3.00;
             }
-            
+
             price = string.Format("${0:N2}", tempPrice);
             return price;
         }
 
         private void buttonCompleteOrder_Click(object sender, EventArgs e)
         {
-            if(maskedTextBoxOrderName.Text == string.Empty)
+            if (maskedTextBoxOrderName.Text == string.Empty)
             {
                 MessageBox.Show("You must give an order name", "Give an order name");
             }
@@ -146,7 +209,42 @@ namespace coffeeApp
 
         private void buttonClearOrder_Click(object sender, EventArgs e)
         {
+            orderList.Clear();
+            listViewOrder.Items.Clear();
+        }
 
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you wish to clear the list?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                comboBoxCoffeeFlavors.Items.Clear();
+                MessageBox.Show("Coffee flavor list is cleared!", "Coffee List Cleared");
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (comboBoxCoffeeFlavors.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must select a flavor to remove", "Select a flavor");
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show("Are you sure you want to remove this flavor?", "Remove Flavor", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                comboBoxCoffeeFlavors.Items.RemoveAt(comboBoxCoffeeFlavors.SelectedIndex);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

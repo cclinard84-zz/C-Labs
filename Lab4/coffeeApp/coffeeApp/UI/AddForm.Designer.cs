@@ -46,22 +46,23 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(329, 234);
+            this.buttonCancel.Location = new System.Drawing.Point(303, 234);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(129, 61);
+            this.buttonCancel.Size = new System.Drawing.Size(155, 61);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonAddFlavor
             // 
             this.buttonAddFlavor.Location = new System.Drawing.Point(102, 234);
             this.buttonAddFlavor.Name = "buttonAddFlavor";
-            this.buttonAddFlavor.Size = new System.Drawing.Size(125, 61);
+            this.buttonAddFlavor.Size = new System.Drawing.Size(155, 61);
             this.buttonAddFlavor.TabIndex = 2;
             this.buttonAddFlavor.Text = "Add Flavor";
             this.buttonAddFlavor.UseVisualStyleBackColor = true;
-            this.buttonAddFlavor.Click += new System.EventHandler(this.button2_Click);
+            this.buttonAddFlavor.Click += new System.EventHandler(this.buttonAddFlavor_Click);
             // 
             // maskedTextBox1
             // 

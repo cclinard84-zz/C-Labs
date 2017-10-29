@@ -78,7 +78,7 @@
             this.coffeeListToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1154, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1154, 42);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             this.removeToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.addCoffeeFlavorsToolStripMenuItem.Name = "addCoffeeFlavorsToolStripMenuItem";
-            this.addCoffeeFlavorsToolStripMenuItem.Size = new System.Drawing.Size(179, 36);
+            this.addCoffeeFlavorsToolStripMenuItem.Size = new System.Drawing.Size(179, 38);
             this.addCoffeeFlavorsToolStripMenuItem.Text = "Coffee Flavors";
             // 
             // addToolStripMenuItem
@@ -130,14 +130,16 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(200, 38);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(200, 38);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
             this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // coffeeListToolStripMenuItem
             // 
@@ -164,11 +166,6 @@
             // comboBoxCoffeeFlavors
             // 
             this.comboBoxCoffeeFlavors.FormattingEnabled = true;
-            this.comboBoxCoffeeFlavors.Items.AddRange(new object[] {
-            "Morning Blend",
-            "Regular",
-            "Americano",
-            "Cappucino"});
             this.comboBoxCoffeeFlavors.Location = new System.Drawing.Point(21, 87);
             this.comboBoxCoffeeFlavors.Name = "comboBoxCoffeeFlavors";
             this.comboBoxCoffeeFlavors.Size = new System.Drawing.Size(189, 33);
@@ -209,12 +206,6 @@
             // 
             this.listBoxSyrupFlavors.FormattingEnabled = true;
             this.listBoxSyrupFlavors.ItemHeight = 25;
-            this.listBoxSyrupFlavors.Items.AddRange(new object[] {
-            "Almond",
-            "Amaretto",
-            "Caramel",
-            "Chocolate Milano",
-            "Cinnamon"});
             this.listBoxSyrupFlavors.Location = new System.Drawing.Point(21, 201);
             this.listBoxSyrupFlavors.Name = "listBoxSyrupFlavors";
             this.listBoxSyrupFlavors.Size = new System.Drawing.Size(189, 54);
