@@ -1,4 +1,9 @@
-﻿using System;
+﻿// File: Beans.cs
+// Author: Matt Clinard
+// Date: 10/30/2017
+// This program is designed to allow a user to add/remove coffee flavors to the program which
+// in turn allows a user to order coffee drinks
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +33,7 @@ namespace coffeeApp
             addItemsToComboBox();
         }
 
+        //This method adds coffee flavors to a list
         private void addCoffeeFlavorsToList()
         {
             CoffeeFlavor regular = new CoffeeFlavor("Regular");
@@ -42,6 +48,7 @@ namespace coffeeApp
             coffeeFlavorList.Add(latte);
         }
 
+        //This method adds syrup flavors to a list
         private void addSyrupFlavorsToList()
         {
             SyrupFlavor almond = new SyrupFlavor("Almond");
@@ -58,6 +65,7 @@ namespace coffeeApp
             syrupList.Add(pumpkinSpice);
         }
 
+        //This method adds items to a combobox
         private void addItemsToComboBox()
         {
             foreach (CoffeeFlavor coffeeFlavor in coffeeFlavorList)
@@ -66,6 +74,7 @@ namespace coffeeApp
             }
         }
 
+        //This method adds items to a listbox
         private void addItemsToListBox()
         {
             foreach (SyrupFlavor syrupFlavor in syrupList)
@@ -74,6 +83,7 @@ namespace coffeeApp
             }
         }
 
+        //Event handler
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddForm addForm = new AddForm(coffeeFlavorList);
@@ -86,17 +96,20 @@ namespace coffeeApp
 
         }
 
+        //This method adds flavors to flavor list
         private void addCoffeeFlavorsToList(CoffeeFlavor flavor)
         {
             comboBoxCoffeeFlavors.Items.Add(flavor.flavor);
         }
 
+        //event handler
         private void countToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String msgBox = String.Format("There are {0} coffee flavors in the list", comboBoxCoffeeFlavors.Items.Count);
             MessageBox.Show(msgBox, "Number of Coffee Flavors");
         }
 
+        //event handler
         private void buttonAddToOrder_Click(object sender, EventArgs e)
         {
             string coffeeFlavor;
@@ -139,6 +152,7 @@ namespace coffeeApp
             addOrderToListView(coffee);
         }
 
+        //This method adds listview items to the listview
         private void addOrderToListView(Coffee coffee)
         {
 
@@ -150,6 +164,7 @@ namespace coffeeApp
 
         }
 
+        //This method returns the size of the drinks selected
         private string getSize()
         {
             if (radioButtonExtraLarge.Checked == true)
@@ -170,6 +185,7 @@ namespace coffeeApp
             }
         }
 
+        //This method returns the price of the drink based on the size
         private string getPrice(string size)
         {
             string price = "";
@@ -199,6 +215,7 @@ namespace coffeeApp
             return price;
         }
 
+        //Event Handler
         private void buttonCompleteOrder_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxOrderName.Text == string.Empty)
@@ -216,23 +233,28 @@ namespace coffeeApp
             clearSelected();  
         }
 
+        //Event Handler
         private void buttonClearOrder_Click(object sender, EventArgs e)
         {
             clearListAndListView();
+            clearSelected();
         }
 
+        //This method clears the order list and listview
         private void clearListAndListView()
         {
             orderList.Clear();
             listViewOrder.Items.Clear();
         }
 
+        //Event Handler
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Are you sure you wish to clear the list?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 comboBoxCoffeeFlavors.Items.Clear();
+                coffeeFlavorList.Clear();
                 MessageBox.Show("Coffee flavor list is cleared!", "Coffee List Cleared");
             }
             else
@@ -242,6 +264,7 @@ namespace coffeeApp
 
         }
 
+        //Event Handler
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (comboBoxCoffeeFlavors.SelectedIndex == -1)
@@ -253,7 +276,9 @@ namespace coffeeApp
             DialogResult dialog = MessageBox.Show("Are you sure you want to remove this flavor?", "Remove Flavor", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                comboBoxCoffeeFlavors.Items.RemoveAt(comboBoxCoffeeFlavors.SelectedIndex);
+                int index = comboBoxCoffeeFlavors.SelectedIndex;
+                comboBoxCoffeeFlavors.Items.RemoveAt(index);
+                coffeeFlavorList.Remove(coffeeFlavorList[index]);
             }
             else
             {
@@ -261,16 +286,19 @@ namespace coffeeApp
             }
         }
 
+        //Event Handler
         private void clearToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             clearListAndListView();
         }
 
+        //Event Handler
         private void clearToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             clearSelected();
         }
 
+        //This method clears the current items selected
         private void clearSelected()
         {
             comboBoxCoffeeFlavors.SelectedIndex = -1;
@@ -282,10 +310,22 @@ namespace coffeeApp
             comboBoxQuantity.SelectedIndex = -1;
         }
 
+        //Event Handler
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form aboutForm = new About();
             aboutForm.Show();
+        }
+
+        //Event Handler
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to exit the program?", "Do you wish to exit?", MessageBoxButtons.YesNo);
+            if(dialog == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            return;
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// File: About.cs
+// Author: Matt Clinard
+// Date: 10.30.2017
+// This form is used with Beans.cs
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
