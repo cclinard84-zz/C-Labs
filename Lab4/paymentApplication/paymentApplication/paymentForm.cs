@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace paymentApplication
 {
-    public partial class Form1 : Form
+    public partial class paymentForm : Form
     {
-        public Form1()
+        public paymentForm()
         {
             InitializeComponent();
         }
+
     }
 }
